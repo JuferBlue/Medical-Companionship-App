@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* 1rem = 10px */
+    font-size: 62.5%;
+}
+body,input,button,a,textarea,select{
+    margin: 0;
+    font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei";
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #333;
+}
+a,u,s{
+    text-decoration: none;
+}
+
+a:hover,a:focus{
+    text-decoration: none;
+}
+a:hover{
+    filter:alpha(opacity=90);
+    opacity: .9;
+}
+dl,ul,ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+input button select{
+    outline: none;
+}
+
+fieldset,img,iframe{
+    border: 0;
+}
+i,em{
+    font-style: normal;
+}
+label{
+    font-weight: normal;
+}
+
+h2,h3,h4,p,dl,dt,dd{
+    margin: 0;
+    padding: 0;
+}
+img{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body,input,button,a,textarea,select,dl,ul,ol,li,h2,h3,h4,p,dl,dt,dd,span,div{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.trans{
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition:all 0.3s;
+}
+
+.tc{
+    text-align: center;
+}
+.tr{
+    text-align: right;
+}
+.tl{
+    text-align: left;
+}
+
+
+a:focus,button:focus,input:focus{
+    outline: none;
+}
+
+.ell{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: keep-all;
+    word-wrap: normal;
+}
+
+.fn-clear{
+    zoom: 1;
+}
+
+.fn-clear::after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: "";
+    clear: both;
+    height: 0;
+}
