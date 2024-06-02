@@ -43,7 +43,8 @@ const router = createRouter({
         {  
             path: '/register',  
             name: 'register',  
-            component:()=>import('../views/my/Register.vue'),  
+            component:()=>import('../views/my/Register.vue'),
+            meta:{fullScreen:true}  
         },
         {
             path:'/patientList',
