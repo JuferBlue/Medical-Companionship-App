@@ -11,7 +11,7 @@
           <p>1个就诊人</p>
         </div>
       </router-link>
-      <div class="service">
+      <router-link to="/couponList" tag="div" class="service">
         <div>
           <svg class="iconfont custom-size">
             <use xlink:href="#icon-youhuiquan"></use>
@@ -21,7 +21,7 @@
           <h3>优惠券</h3>
           <p>3张未使用</p>
         </div>
-      </div>
+      </router-link>
     </div>
   </template>
   

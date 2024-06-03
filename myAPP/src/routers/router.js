@@ -8,11 +8,13 @@ import Index from '../views/index/Index.vue';
 const router = createRouter({
     history: createWebHashHistory(),
     routes:[
+        //引导页的路由
         {
             path:'/',
             component:()=>import('../views/IntroPage.vue'),
             meta:{fullScreen:true}
         },
+        //底部导航栏的路由
         {
             name:'index',
             path:'/index',
@@ -34,6 +36,7 @@ const router = createRouter({
             path:'/my',
             component:()=>import('../views/my/Index.vue'),
         },
+        //登录注册模块的路由
         {
             path:'/login',
             name:'login',
@@ -46,6 +49,7 @@ const router = createRouter({
             component:()=>import('../views/my/Register.vue'),
             meta:{fullScreen:true}  
         },
+        //就诊人管理模块的路由
         {
             path:'/patientList',
             component:()=>import('../views/my/patient_management/PatientList.vue'),
@@ -56,6 +60,7 @@ const router = createRouter({
             component:()=>import('../views/my/patient_management/AddPatient.vue'),
             meta:{fullScreen:true}
         },
+        //地址管理模块的路由
         {
             path:'/addressList',
             component:()=>import('../views/my/address_management/AddressList.vue'),
@@ -64,6 +69,32 @@ const router = createRouter({
         {
             path:'/addAddress',
             component:()=>import('../views/my/address_management/AddAddress.vue'),
+            meta:{fullScreen:true}
+        }
+        //帮助中心的路由
+        ,
+        {
+            path:'/help',
+            component:()=>import('../views/my/help_center/HelpCenter.vue'),
+            meta:{fullScreen:true}
+        },
+        //卡券模块的路由
+        {
+            //卡券兑换模块
+            path:'/exchange',
+            component:()=>import('../views/my/coupon/CouponExchange.vue'),
+            meta:{fullScreen:true}
+        },
+        {
+            //卡券列表模块
+            path:'/couponList',
+            component:()=>import('../views/my/coupon/CouponList.vue'),
+            meta:{fullScreen:true}
+        },
+        //主页医院路由
+        {
+            path:'/hospitalDetail',
+            component:()=>('../views/my/coupon/CouponList.vue'),
             meta:{fullScreen:true}
         }
     ]
