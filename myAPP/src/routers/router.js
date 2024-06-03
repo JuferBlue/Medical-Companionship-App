@@ -94,7 +94,7 @@ const router = createRouter({
         //主页医院路由
         {
             path:'/hospitalDetail',
-            component:()=>('../views/my/coupon/CouponList.vue'),
+            component:()=>import('../views/index/hospital_introduction/HospitalDetail.vue'),
             meta:{fullScreen:true}
         }
     ]
