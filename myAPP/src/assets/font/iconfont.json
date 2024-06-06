@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "10881456",
+      "name": "系统通知",
+      "font_class": "xitongtongzhi",
+      "unicode": "e703",
+      "unicode_decimal": 59139
+    },
+    {
+      "icon_id": "14166060",
+      "name": "在线客服",
+      "font_class": "zaixiankefu1",
+      "unicode": "e995",
+      "unicode_decimal": 59797
+    },
+    {
       "icon_id": "1302",
       "name": "加",
       "font_class": "jia",
