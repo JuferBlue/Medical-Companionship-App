@@ -1,27 +1,31 @@
 
 <template>
-  <div class="container">
-    <h1>用户登录</h1>
-    <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
-    <form @submit.prevent="handleLogin">
-      <label for="username">用户名</label>
-      <input type="text" v-model="username" class="input" placeholder="请输入用户名">
-      
-      <label for="pwd">密码</label>
-      <input type="password" v-model="password" class="input" placeholder="请输入密码">
+  <div>
+    <BackHeader title="欢迎登录" />
+    <div class="container">
+      <h1>用户登录</h1>
+      <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
+      <form @submit.prevent="handleLogin">
+        <label for="username">用户名</label>
+        <input type="text" v-model="username" class="input" placeholder="请输入用户名">
+        
+        <label for="pwd">密码</label>
+        <input type="password" v-model="password" class="input" placeholder="请输入密码">
 
-      
-      <button type="submit" class="submit">开始登录</button>
-      
-      <div class="links">
-        <button class="ab" @click="$router.push({ name: 'index' })">返回首页</button>
-        <button class="ab" @click="$router.push({ name: 'register' })">注册账号</button>
-      </div>
-    </form>
+        
+        <button type="submit" class="submit">开始登录</button>
+        
+        <div class="links">
+          <button class="ab" @click="$router.push({ name: 'index' })">返回首页</button>
+          <button class="ab" @click="$router.push({ name: 'register' })">注册账号</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script setup>  
+import BackHeader from '../../components/BackHeader.vue';
 import { ref } from 'vue';  
 
 const username = ref('');  

@@ -1,20 +1,28 @@
 
 <template>  
-    <div class="exchange-management">  
-		<img src="./兑换图标.png" alt="兑换图标" class="icon">
-		
-		<div class="input-group">  
-			<input type="text" id="voucher-code" v-model="voucherCode" placeholder="请输入兑换码">  
-		</div>  
-		
-		<p class="warning">温馨提示:<br>1、同一个兑换码每个账号只能兑换一次。<br>2、输入时请使用英文输入法，区分大小写字母</p>
-		
-		<button class="exchange" @click="exchange">立即兑换</button> 
+    <div>
+      <BackHeader title="优惠券兑换" />
+      <div class="exchange-management">  
+        <img src="./兑换图标.png" alt="兑换图标" class="icon">
+        
+        <div class="input-group">  
+          <input type="text" id="voucher-code" v-model="voucherCode" placeholder="请输入兑换码">  
+        </div>  
+        
+        <p class="warning">温馨提示:<br>1、同一个兑换码每个账号只能兑换一次。<br>2、输入时请使用英文输入法，区分大小写字母</p>
+        
+        <button class="exchange" @click="exchange">立即兑换</button> 
+      </div>
     </div>  
 </template>  
   
 <script>  
-export default {  
+import BackHeader from '../../../components/BackHeader.vue';
+export default { 
+  // 导出组件  
+  components: {  
+    BackHeader,  
+  },
   name: 'exchange',  
   methods: {  
     exchange() {  

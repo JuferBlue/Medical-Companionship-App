@@ -1,16 +1,20 @@
 <template>  
-    <div class="patient-management">  
-		<div class="warning">  
-            您还没有添加就诊人~<br>请点击下方按钮添加就诊人  
+    <div>
+        <BackHeader title="就诊人管理" />
+        <div class="patient-management">
+            <div class="warning">  
+                您还没有添加就诊人~<br>请点击下方按钮添加就诊人  
+            </div>  
+            <router-link to="/addPatient" class="addBtn">  
+                添加就诊人  
+            </router-link>  
         </div>  
-        <router-link to="/addPatient" class="addBtn">  
-            添加就诊人  
-        </router-link>  
-    </div>  
+    </div>
 </template>  
   
 <script setup>  
 // 这里是组件的逻辑部分，目前为空  
+import BackHeader from '../../../components/BackHeader.vue';
 </script>  
   
 <style scoped>  

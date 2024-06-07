@@ -1,5 +1,6 @@
 <template>  
 	  <div>
+      <BackHeader title="我的优惠券" />
       <div>
           <h3 class="title">&nbsp;可用优惠券</h3>
       </div>
@@ -26,7 +27,12 @@
 </template>  
 
 <script>  
+import BackHeader from '../../../components/BackHeader.vue';
 export default {  
+// 导出组件
+components: {  
+  BackHeader,  
+},
 name: 'CouponComponent',  
 methods: {  
   redeemCoupon() {  

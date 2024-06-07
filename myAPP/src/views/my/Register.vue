@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <BackHeader title="注册" />
     <div class="container">
       <h1>新用户注册</h1>
       <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
@@ -27,35 +29,37 @@
         </div>
       </form>
     </div>
-  </template>
+  </div>    
+</template>
   
 
-  <script setup>  
-  import { ref } from 'vue';  
-    
-  const username = ref('');  
-  const phoneNumber = ref('');  
-  const password = ref('');  
-  const confirmPassword = ref('');    
-  const agreement = ref(false);  
-  const errorMessage = ref('');  
-    
-  const handleRegister = () => {  
-    if (!agreement.value) {  
-      errorMessage.value = "请先阅读并同意《用户注册协议》！";  
-      return;  
-    }  
-    if (!username.value || !phoneNumber.value || !password.value || !confirmPassword.value) {  
-      errorMessage.value = "所有字段都是必填项！";  
-      return;  
-    }  
-    if (password.value !== confirmPassword.value) {  
-      errorMessage.value = "密码和确认密码不一致！";  
-      return;  
-    }  
-    errorMessage.value = "注册成功！";  
-  };  
-  </script>  
+<script setup>  
+import { ref } from 'vue';
+import BackHeader from '../../components/BackHeader.vue';
+  
+const username = ref('');  
+const phoneNumber = ref('');  
+const password = ref('');  
+const confirmPassword = ref('');    
+const agreement = ref(false);  
+const errorMessage = ref('');  
+  
+const handleRegister = () => {  
+  if (!agreement.value) {  
+    errorMessage.value = "请先阅读并同意《用户注册协议》！";  
+    return;  
+  }  
+  if (!username.value || !phoneNumber.value || !password.value || !confirmPassword.value) {  
+    errorMessage.value = "所有字段都是必填项！";  
+    return;  
+  }  
+  if (password.value !== confirmPassword.value) {  
+    errorMessage.value = "密码和确认密码不一致！";  
+    return;  
+  }  
+  errorMessage.value = "注册成功！";  
+};  
+</script>  
 
   <style scoped>
   p{

@@ -1,34 +1,40 @@
 <template>  
- 
-  <div class="address-form-container">  
-    <h2 class="form-title">添加地址</h2>  
+  <div>
+    <BackHeader title="添加地址" />
+    <div class="address-form-container">  
+      <h2 class="form-title">添加地址</h2>  
+      
+      <div class="form-group">  
+          <label for="recipientName">收件人：</label>  
+          <input id="name" v-model="recipient.name" placeholder="请填写收件人姓名" type="text" />  
+      </div>  
+        
+      <div class="form-group">  
+          <label for="phoneNumber">手机号：</label>  
+          <input id="phoneNumber" v-model="recipient.phoneNumber" placeholder="请填写收件人手机号" type="tel" />  
+      </div>  
+        
+      <div class="form-group">  
+          <label for="address">详细地址：</label>  
+          <input id="address" v-model="recipient.address" placeholder="如街道、门牌号、小区、乡镇、村等" type="text" />  
+          <button class="get-location-btn" @click="getLocation">获取定位</button>  
+      </div>  
+        
+      <p class="warning">温馨提示：<br>收件人姓名，手机号码仅用于平台服务，不会外传。</p>  
+          
+      <button class="submit-btn" @click="submitForm">添加</button>  
     
-	<div class="form-group">  
-      <label for="recipientName">收件人：</label>  
-      <input id="name" v-model="recipient.name" placeholder="请填写收件人姓名" type="text" />  
-    </div>  
-    
-	<div class="form-group">  
-      <label for="phoneNumber">手机号：</label>  
-      <input id="phoneNumber" v-model="recipient.phoneNumber" placeholder="请填写收件人手机号" type="tel" />  
-    </div>  
-    
-	<div class="form-group">  
-      <label for="address">详细地址：</label>  
-      <input id="address" v-model="recipient.address" placeholder="如街道、门牌号、小区、乡镇、村等" type="text" />  
-      <button class="get-location-btn" @click="getLocation">获取定位</button>  
-    </div>  
-    
-	<p class="warning">温馨提示：<br>收件人姓名，手机号码仅用于平台服务，不会外传。</p>  
-    
-	<button class="submit-btn" @click="submitForm">添加</button>  
-  
+    </div>
   </div>  
 </template>  
   
 <script>  
+import BackHeader from '../../../components/BackHeader.vue';
 
 export default {  
+  components: {  
+    BackHeader,  
+  },
   data() {  
     return {  
       recipient: {  

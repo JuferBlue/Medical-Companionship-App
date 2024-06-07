@@ -1,16 +1,20 @@
 <template>  
-    <div class="address-management">  
-		<div class="warning">  
-            您还没有添加地址~<br>请点击下方按钮添加地址  
-        </div>  
-        <router-link to="/addAddress"  class="addBtn">  
-            添加地址  
-        </router-link>  
+    <div>
+        <BackHeader title="地址管理" />
+        <div class="address-management">  
+            <div class="warning">  
+                您还没有添加地址~<br>请点击下方按钮添加地址  
+            </div>  
+            <router-link to="/addAddress"  class="addBtn">  
+                添加地址  
+            </router-link>  
+        </div>
     </div>  
 </template>  
   
 <script setup>  
-// 这里是组件的逻辑部分，目前为空  
+// 这里是组件的逻辑部分，目前为空
+import BackHeader from '../../../components/BackHeader.vue';
 </script>  
   
 <style scoped>  
