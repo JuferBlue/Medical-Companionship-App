@@ -1,6 +1,6 @@
 <template>
     <div class="msg">
-        <EasyHeader>
+        <EasyHeader class="fixed-header">
             <p>消息</p>
         </EasyHeader>
         <SystemMsg/>
@@ -17,5 +17,6 @@ import SystemMsg from './SystemMsg.vue';
     height: 667px;
     background-color: #f0f0f0;
 }
+
 
 </style>

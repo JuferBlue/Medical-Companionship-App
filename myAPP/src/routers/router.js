@@ -135,6 +135,20 @@ const router = createRouter({
             component:()=>import('../views/shop/service_detail/ServiceForm.vue'),
             meta:{fullScreen:true}
         },
+        // 订单评价页面路由
+        {
+            name: 'OrderReview',
+            path: '/order-review',
+            component: () => import('../views/order/Review.vue'),
+            meta: { fullScreen: true }
+        },
+        // 陪诊人员详情页面路由
+        {
+            path: '/worker-detail',
+            name: 'WorkerDetail',
+            component: () => import('../views/shop/service_detail/WorkerDetail.vue'),
+            meta: { fullScreen: true }
+        }
     ]
 
 })

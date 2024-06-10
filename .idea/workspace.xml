@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77a3b602-0ba5-4613-8c21-36ec1a1bdfd8" name="Changes" comment="完善登录注册,完成添加订单功能">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="77a3b602-0ba5-4613-8c21-36ec1a1bdfd8" name="Changes" comment="完善订单功能模块" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +71,7 @@
       <workItem from="1717731253958" duration="86000" />
       <workItem from="1717804357337" duration="369000" />
       <workItem from="1717983844075" duration="313000" />
+      <workItem from="1718002603214" duration="88000" />
     </task>
     <task id="LOCAL-00001" summary="新增服务，订单，消息三个页面">
       <option name="closed" value="true" />
@@ -98,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717984015954</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完善订单功能模块">
+      <option name="closed" value="true" />
+      <created>1718002664261</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718002664261</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +115,7 @@
     <MESSAGE value="新增服务，订单，消息三个页面" />
     <MESSAGE value="给每个页面增加了头部返回条" />
     <MESSAGE value="完善登录注册,完成添加订单功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善登录注册,完成添加订单功能" />
+    <MESSAGE value="完善订单功能模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善订单功能模块" />
   </component>
 </project>

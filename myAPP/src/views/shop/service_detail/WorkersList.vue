@@ -9,7 +9,10 @@
         <p>年龄: {{ worker.age }}岁</p>
         <p>评分: {{ worker.rating }} / 5</p>
         <p>接单次数: {{ worker.orders }}</p>
-        <button class="select-button" @click="selectWorker(worker)">选择陪诊人员</button>
+        <div class="button-container">
+          <button class="view-reviews-button" @click="viewWorkerDetail(worker)">查看评价</button>
+          <button class="select-button" @click="selectWorker(worker)">选择陪诊人员</button>
+        </div>
       </div>
     </div>
   </div>
@@ -79,6 +82,25 @@ const selectWorker = (worker) => {
     }
   });
 };
+
+const viewWorkerDetail = (worker) => {
+  // 跳转到陪诊人员详情页面，并传递陪诊人员信息
+  router.push({
+    path: '/worker-detail',
+    query: {
+      workerId: worker.id,
+      workerName: worker.name,
+      workerGender: worker.gender,
+      workerAge: worker.age,
+      workerPhoto: worker.photo,
+      workerRating: worker.rating,
+      workerOrders: worker.orders,
+      serviceTitle: props.serviceTitle,
+      servicePrice: props.servicePrice,
+      serviceId: props.serviceId
+    }
+  });
+};
 </script>
 
 <style scoped>
@@ -119,20 +141,37 @@ const selectWorker = (worker) => {
   color: #666;
 }
 
-.select-button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #28a745;
-  color: white;
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.select-button,
+.view-reviews-button {
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  width: auto;
+}
+
+.select-button {
+  background-color: #28a745;
+  color: white;
 }
 
 .select-button:hover {
   background-color: #218838;
+}
+
+.view-reviews-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.view-reviews-button:hover {
+  background-color: #0056b3;
 }
 </style>
