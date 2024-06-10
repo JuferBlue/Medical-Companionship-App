@@ -14,7 +14,7 @@
       </header>
       <section class="services">
         <div v-if="activeTab === '全部服务'">
-          <div class="service-item" v-for="(service, index) in allServices" :key="index">
+          <div class="service-item" v-for="(service, index) in allServices" :key="index" @click="navigateToDetail(service)">
             <img src="./pic_cha.png" alt="服务图片" />
             <div class="service-info">
               <p class="title">{{ service.title }}</p>
@@ -23,7 +23,7 @@
           </div>
         </div>
         <div v-if="activeTab === '陪伴服务'">
-          <div class="service-item" v-for="(service, index) in companionServices" :key="index">
+          <div class="service-item" v-for="(service, index) in companionServices" :key="index" @click="navigateToDetail(service)">
             <img src="./pic_cha.png" alt="服务图片" />
             <div class="service-info">
               <p class="title">{{ service.title }}</p>
@@ -32,7 +32,7 @@
           </div>
         </div>
         <div v-if="activeTab === '跑腿服务'">
-          <div class="service-item" v-for="(service, index) in errandServices" :key="index">
+          <div class="service-item" v-for="(service, index) in errandServices" :key="index" @click="navigateToDetail(service)">
             <img src="./pic_cha.png" alt="服务图片" />
             <div class="service-info">
               <p class="title">{{ service.title }}</p>
@@ -45,34 +45,51 @@
   </div>
 </template>
 
+
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const activeTab = ref('全部服务');
 
 const allServices = ref([
-  { title: '全天陪诊', description: '全程陪同服务，手续代办服务', image: './南昌市第一医院.jpg' },
-  { title: '夜间陪诊', description: '适用于突发疾病或意外事故', image: 'image2.jpg' },
-  { title: '半天接送', description: '半天陪诊陪诊+上门接送服务', image: 'image3.jpg' },
-  { title: '挂号咨询', description: '人工代办预约就诊号咨询服务', image: 'image4.jpg' },
-  { title: '代办问诊', description: '代客户到医院找医生问诊', image: 'image5.jpg' },
-  { title: '送取报告', description: '送/取报告到家服务', image: 'image6.jpg' },
-  { title: '代办买药', description: '人工排队代买药服务', image: 'image7.jpg' },
-  { title: '半天陪诊', description: '全程陪同服务，手续代办服务', image: 'image1.jpg' }
+  { id: 1, title: '全天陪诊', description: '全程陪同服务，手续代办服务', price: 500 },
+  { id: 2, title: '夜间陪诊', description: '适用于突发疾病或意外事故', price: 300 },
+  { id: 3, title: '半天接送', description: '半天陪诊陪诊+上门接送服务', price: 200 },
+  { id: 4, title: '挂号咨询', description: '人工代办预约就诊号咨询服务', price: 100 },
+  { id: 5, title: '代办问诊', description: '代客户到医院找医生问诊', price: 150 },
+  { id: 6, title: '送取报告', description: '送/取报告到家服务', price: 80 },
+  { id: 7, title: '代办买药', description: '人工排队代买药服务', price: 50 },
+  { id: 8, title: '半天陪诊', description: '全程陪同服务，手续代办服务', price: 250 }
 ]);
 
 const companionServices = ref([
-  { title: '全天陪诊', description: '全程陪同服务，手续代办服务', image: './南昌市第一医院.jpg' },
-  { title: '夜间陪诊', description: '适用于突发疾病或意外事故', image: 'image2.jpg' },
-  { title: '半天接送', description: '半天陪诊陪诊+上门接送服务', image: 'image3.jpg' },
+  { id: 1, title: '全天陪诊', description: '全程陪同服务，手续代办服务', price: 500 },
+  { id: 2, title: '夜间陪诊', description: '适用于突发疾病或意外事故', price: 300 },
+  { id: 3, title: '半天接送', description: '半天陪诊陪诊+上门接送服务', price: 200 },
+  { id: 8, title: '半天陪诊', description: '全程陪同服务，手续代办服务', price: 250 }
 ]);
 
 const errandServices = ref([
-  { title: '挂号咨询', description: '人工代办预约就诊号咨询服务', image: 'image4.jpg' },
-  { title: '代办问诊', description: '代客户到医院找医生问诊', image: 'image5.jpg' },
-  { title: '送取报告', description: '送/取报告到家服务', image: 'image6.jpg' },
-  { title: '代办买药', description: '人工排队代买药服务', image: 'image7.jpg' },
+  { id: 4, title: '挂号咨询', description: '人工代办预约就诊号咨询服务', price: 100 },
+  { id: 5, title: '代办问诊', description: '代客户到医院找医生问诊', price: 150 },
+  { id: 6, title: '送取报告', description: '送/取报告到家服务', price: 80 },
+  { id: 7, title: '代办买药', description: '人工排队代买药服务', price: 50 },
 ]);
+
+
+const navigateToDetail = (service) => {
+  router.push({ 
+    path: `/serviceDetail`, 
+    query: { 
+      id: service.id, 
+      title: service.title, 
+      description: service.description,
+      price: service.price
+    } 
+  });
+};
 </script>
 
 <style scoped>

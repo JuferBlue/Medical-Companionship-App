@@ -96,7 +96,19 @@ const router = createRouter({
             path:'/hospitalDetail',
             component:()=>import('../views/index/hospital_introduction/HospitalDetail.vue'),
             meta:{fullScreen:true}
-        }
+        },
+        //服务详情页路由
+        {
+            path:'/serviceDetail',
+            component:()=>import('../views/shop/service_detail/ServiceDetail.vue'),
+            meta:{fullScreen:true}
+        },
+        //服务表单页面
+        {
+            path: '/service-form',
+            component:()=>import('../views/shop/service_detail/ServiceForm.vue'),
+            meta:{fullScreen:true}
+        },
     ]
 
 })
