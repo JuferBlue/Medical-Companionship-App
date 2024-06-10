@@ -26,7 +26,33 @@ const router = createRouter({
         },
         {
             path:'/order',
-            component:()=>import('../views/order/Index.vue')
+            component:()=>import('../views/order/Index.vue'),
+            children:[
+                  {
+                    path: '',
+                    redirect: '/order/all-orders'
+                  },
+                  {
+                    path: 'all-orders',
+                    name: 'AllOrders',
+                    component: () => import('../views/order/AllOrders.vue')
+                  },
+                  {
+                    path: 'pending-payment',
+                    name: 'PendingPayment',
+                    component: () => import('../views/order/PendingPayment.vue')
+                  },
+                  {
+                    path: 'progress-orders',
+                    name: 'ProgressOrders',
+                    component: () => import('../views/order/ProgressOrders.vue')
+                  },
+                  {
+                    path: 'pending-review',
+                    name: 'PendingReview',
+                    component: () => import('../views/order/PendingReview.vue')
+                  }
+            ]
         },
         {
             path:'/msg',
