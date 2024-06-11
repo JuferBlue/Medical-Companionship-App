@@ -2,8 +2,7 @@
   <div>
     <BackHeader title="添加地址" />
     <div class="address-form-container">  
-      <h2 class="form-title">添加地址</h2>  
-      
+      <form @submit.prevent="submitForm" >
       <div class="form-group">  
           <label for="recipientName">收件人：</label>  
           <input id="name" v-model="recipient.name" placeholder="请填写收件人姓名" type="text" />  
@@ -22,8 +21,9 @@
         
       <p class="warning">温馨提示：<br>收件人姓名，手机号码仅用于平台服务，不会外传。</p>  
           
-      <button class="submit-btn" @click="submitForm">添加</button>  
-    
+      <button class="submit-btn" >添加</button>  
+	  </form> 
+	  
     </div>
   </div>  
 </template>  
@@ -39,7 +39,7 @@ export default {
     return {  
       recipient: {  
         name: '',  
-        phone: '',  
+        phoneNumber: '',  
         address: '',  
       },  
     };  
@@ -73,11 +73,14 @@ export default {
     submitForm() {
 	  // 表单提交逻辑  
 	  if (this.recipient.name && this.recipient.phoneNumber && this.recipient.address) {
+		  // 将信息存储到 localStorage
+		  const recipientData = JSON.stringify(this.recipient);
+		  localStorage.setItem('recipient', recipientData);
 		  console.log('提交就诊人信息:', this.recipient);  
+		  
 	  } else { 
 		  alert('请填写所有必填项！');  
 		  }  
-	  console.log('表单已提交', this.recipient);  
 	},    
   },  
 };  
@@ -104,6 +107,7 @@ export default {
 }  
   
 .form-group label {  
+  width:25%;
   display: block;  
   font-weight: bold;  
   margin-bottom: 10px;  
@@ -116,14 +120,15 @@ export default {
   border: 1px solid #ccc;  
   border-radius: 4px;  
   box-sizing: border-box;  
-   font-size: 16px;
+  font-size: 16px;
 }  
   
 .get-location-btn {  
   display: block;  
+  width:35%;
   margin-top: 20px;  
-  margin-left: 20px; 
-  padding: 10px 20px;  
+  margin-left: 10px; 
+  padding: 5px 0px;  
   background-color: #6fdfb1;  
   color: white;  
   border: none;  
@@ -146,7 +151,7 @@ export default {
   cursor: pointer;  
   text-align: center;  
   font-size: 20px;  
-  margin-top: 150px; 
+  margin-top: 163px; 
   
 }  
 

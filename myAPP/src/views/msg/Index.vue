@@ -1,15 +1,14 @@
 <template>
     <div class="msg">
         <EasyHeader class="fixed-header">
-            <p>消息</p>
+            <p>社区</p>
         </EasyHeader>
-        <SystemMsg/>
     </div>
 </template>
 
 <script setup>
 import EasyHeader from '../../components/EasyHeader.vue'
-import SystemMsg from './SystemMsg.vue';
+
 </script>
 
 <style scoped>

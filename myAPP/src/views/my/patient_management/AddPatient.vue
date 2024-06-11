@@ -2,8 +2,7 @@
   <div>
     <BackHeader title="添加就诊人" />
     <div class="add-patient-form">  
-      <h2>添加就诊人</h2>  
-    
+
       <form @submit.prevent="handleSubmit">  
         <div>  
           <label for="patientName">就诊人姓名：</label>  
@@ -13,10 +12,10 @@
       <div class="radio-group">  
       <label>请选择性别</label>
       
-        <input type="radio" id="male" value="male" v-model="patient.gender" required>  
-        <label for="male">男</label>  
+        <input type="radio" id="male" value="男" v-model="patient.gender" required>  
+        <label for="nan">男</label>  
         
-        <input type="radio" id="female" value="female" v-model="patient.gender">  
+        <input type="radio" id="female" value="女" v-model="patient.gender">  
         <label for="female">女</label>  
   
       </div>  
@@ -59,7 +58,8 @@
       
       <p class="warning">温馨提示：<br>收件人姓名，手机号码仅用于平台服务，不会外传。</p>
     
-        <button type="submit" class="btn-add">添加</button>  
+      <button type="submit" class="btn-add">添加</button>
+	<!--@click="$router.push({ name: 'patientList' })"  -->
       </form>   
     </div>  
   </div>
@@ -86,16 +86,19 @@ export default {
     };  
   },  
   methods: {  
-    handleSubmit() {
-        // 提交表单的逻辑，如发送请求到服务器等  
-        if (this.patient.gender && this.patient.phoneNumber && this.patient.isAdult) {  
-            // 所有必填项都已填写，可以进行表单提交  
+		 
+	handleSubmit() {
+        // this.push({ name: 'patientList' });
+		
+		if (this.patient.gender && this.patient.phoneNumber && this.patient.isAdult) {  
+            // 将就诊人信息存储到 localStorage
+			const patientData = JSON.stringify(this.patient);
+            localStorage.setItem('patient', patientData);
+			// 所有必填项都已填写，可以进行表单提交  
             console.log('提交就诊人信息:', this.patient);  
-            // 发送请求等...  
         } else { 
             alert('请填写所有必填项！');  
             }  
-	 // console.log('提交就诊人信息:', this.patient);  
     },  
   },  
   

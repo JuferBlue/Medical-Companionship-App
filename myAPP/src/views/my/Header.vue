@@ -60,7 +60,9 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
+  margin: 1rem;
+  border-radius: 1rem;
 }
 
 .account-text {
@@ -70,7 +72,7 @@ onMounted(() => {
 
 .login-button {
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #3cb371;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -78,7 +80,7 @@ onMounted(() => {
 }
 
 .login-button:hover {
-  background-color: #0056b3;
+  background-color: #3cb371;
 }
 .button-logout{
   background-color: #09b9679d;
