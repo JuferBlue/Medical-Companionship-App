@@ -29,6 +29,9 @@
 </template>  
   
 <script>  
+import { useRouter } from 'vue-router';
+const router = useRouter();
+import { ElMessage } from 'element-plus';
 import BackHeader from '../../../components/BackHeader.vue';
 
 export default {  
@@ -51,7 +54,8 @@ export default {
 		if (typeof BMap !== 'undefined') {
 		  // 使用BMap相关功能
 		} else {
-		  alert('百度地图API未加载');
+		  // alert('百度地图API未加载');
+      ElMessage.error('百度地图API未加载');
 		}
 
 		// 创建Geolocation实例
@@ -76,10 +80,12 @@ export default {
 		  // 将信息存储到 localStorage
 		  const recipientData = JSON.stringify(this.recipient);
 		  localStorage.setItem('recipient', recipientData);
-		  console.log('提交就诊人信息:', this.recipient);  
+        ElMessage.success('提交成功');
+        router.push({ name: 'addressList' });
 		  
 	  } else { 
-		  alert('请填写所有必填项！');  
+		  // alert('请填写所有必填项！');  
+        ElMessage.error('请填写所有必填项！');
 		  }  
 	},    
   },  
@@ -129,7 +135,7 @@ export default {
   margin-top: 20px;  
   margin-left: 10px; 
   padding: 5px 0px;  
-  background-color: #6fdfb1;  
+  background-color: green;  
   color: white;  
   border: none;  
   border-radius: 4px;  
@@ -144,7 +150,7 @@ export default {
   display: block;
   width: 100%;  
   padding: 15px;  
-  background-color: #6fdfb1;  
+  background-color: green;  
   color: white;  
   border: none;  
   border-radius: 4px;  

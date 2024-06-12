@@ -22,6 +22,7 @@
   </template>
   
   <script setup>
+  import { ElMessage } from 'element-plus';
   import BackHeader from '../../components/BackHeader.vue';
 
 
@@ -64,7 +65,7 @@
     });
     reviews[reviewedOrder.workerName] = workerReviews;
     localStorage.setItem('reviews', JSON.stringify(reviews));
-  
+    ElMessage.success('评价成功！');
     // 跳转回待评价订单页面或其他页面
     router.push({ name: 'AllOrders' });
   };

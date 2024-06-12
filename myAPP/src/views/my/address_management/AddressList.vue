@@ -13,7 +13,7 @@
 		    </div>
 			
 			<div v-else>
-				<img src="./提示图标.png" alt="提示图标" class="warning-icon">
+				<!-- <img src="./提示图标.png" alt="提示图标" class="warning-icon"> -->
 				<div class="warning">  
 		        您还没有添加地址~<br>请点击下方按钮添加地址  
 				</div>  
@@ -27,6 +27,7 @@
 </template>  
   
 <script setup>  
+import { ElMessage } from 'element-plus';
 import BackHeader from '../../../components/BackHeader.vue';
 
 import { ref, onMounted } from 'vue';
@@ -44,6 +45,7 @@ onMounted(() => {
 // 清除 localStorage 中的信息
 function clearrecipientData() {
   localStorage.removeItem('recipient');
+  ElMessage.success('删除成功');
   recipient.value = null;
 }
 
@@ -77,7 +79,7 @@ function clearrecipientData() {
    display: block;
    width: 100%;  
    padding: 15px;  
-   background-color: #6fdfb1;  
+   background-color: green;  
    color: white;  
    border: none;  
    border-radius: 4px;  
@@ -118,7 +120,7 @@ function clearrecipientData() {
 
 .recipient button {
   border: none;
-  background: #4A90E2;
+  background: #11aa66;
   color: white;
   padding: 2px 10px;
   cursor: pointer;

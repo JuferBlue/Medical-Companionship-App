@@ -1,57 +1,60 @@
 <template>
-  <div class="container">
-    <h1>用户登录</h1>
-    <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
-    <form @submit.prevent="handleLogin">
-      <label for="username">用户名</label>
-      <input type="text" v-model="username" class="input" placeholder="请输入用户名">
-      
-      <label for="pwd">密码</label>
-      <input type="password" v-model="password" class="input" placeholder="请输入密码">
+  <div>
+    <back-header title="用户登录"/>
+    <div class="container">
+      <h1>欢迎登录</h1>
+      <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
+      <form @submit.prevent="handleLogin">
+        <label for="username">用户名</label>
+        <input type="text" v-model="username" class="input" placeholder="请输入用户名">
+        
+        <label for="pwd">密码</label>
+        <input type="password" v-model="password" class="input" placeholder="请输入密码">
 
-      
-      <button type="submit" class="submit">开始登录</button>
-      
-      <div class="links">
-        <button class="ab" @click="$router.push({ name: 'index' })">返回首页</button>
-        <button class="ab" @click="$router.push({ name: 'register' })">注册账号</button>
-      </div>
-    </form>
+        
+        <button type="submit" class="submit">登录</button>
+        
+        <div class="links">
+          <button class="ab" @click="$router.push({ name: 'index' })"></button>
+          <button class="ab" @click="$router.push({ name: 'register' })">注册账号</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script setup>  
+import { useRouter } from 'vue-router';
+const $router = useRouter();
+import { ElMessage } from 'element-plus';
+
 import { ref } from 'vue';  
+import BackHeader from '../../components/BackHeader.vue';
 
 const username = ref('');  
 const password = ref('');   
 const errorMessage = ref('');  
 
-
-
-const userData = JSON.parse(localStorage.getItem('userData'));
-const loggedIn = ref(false);
 const handleLogin = () => {  
-
+  const userData = JSON.parse(localStorage.getItem('userData'));
   if (!username.value || !password.value) {  
     errorMessage.value = "所有字段都是必填项！";  
-    //return;  
-  }
-  else{
+  } else {
     if (userData && userData.username === username.value && userData.password === password.value) {
-    loggedIn.value = true;
-    localStorage.setItem('loggedIn', 'true');
-    errorMessage.value = "登录成功！";
-    }
-     else {
-    errorMessage.value="用户名或密码错误！";
+      localStorage.setItem('loggedIn', 'true');
+      // errorMessage.value = "登录成功！";
+      ElMessage({
+        message: '登录成功',
+        type: 'success',
+      })
+      $router.push({ name: 'my' });
+    } else {
+      // errorMessage.value="";
+      ElMessage.error('用户名或密码错误！')
     }
   } 
-    
 };  
-
 </script>  
-
 
 <style scoped>
 p{

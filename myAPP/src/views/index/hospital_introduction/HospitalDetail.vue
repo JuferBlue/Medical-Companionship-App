@@ -9,7 +9,7 @@
         </div>
           <p class="hospital-description">{{ description }}</p>
           <div class="hospital-intro">
-            <h2>江西省人民医院简介</h2>
+            <h2>{{ name }}简介</h2>
             <section>
               <h3><i class="fas fa-info-circle"></i> 一、医院基本信息</h3>
               <p><strong>创办时间：</strong> 1897年</p>

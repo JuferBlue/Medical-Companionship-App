@@ -59,6 +59,7 @@ const router = createRouter({
             component:()=>import('../views/msg/Index.vue')
         },
         {
+            name:'my',
             path:'/my',
             component:()=>import('../views/my/Index.vue'),
         },
@@ -77,17 +78,20 @@ const router = createRouter({
         },
         //就诊人管理模块的路由
         {
+            name:'patientList',
             path:'/patientList',
             component:()=>import('../views/my/patient_management/PatientList.vue'),
             meta:{fullScreen:true}
         },
         {
+            name:'addPatient',
             path:'/addPatient',
             component:()=>import('../views/my/patient_management/AddPatient.vue'),
             meta:{fullScreen:true}
         },
         //地址管理模块的路由
         {
+            name:'addressList',
             path:'/addressList',
             component:()=>import('../views/my/address_management/AddressList.vue'),
             meta:{fullScreen:true}
@@ -148,6 +152,12 @@ const router = createRouter({
             name: 'WorkerDetail',
             component: () => import('../views/shop/service_detail/WorkerDetail.vue'),
             meta: { fullScreen: true }
+        },
+        //设置页面路由
+        {
+            path:'/settings',
+            component:()=>import('../views/my/setting_page/Setting.vue'),
+            meta:{fullScreen:true}
         }
     ]
 

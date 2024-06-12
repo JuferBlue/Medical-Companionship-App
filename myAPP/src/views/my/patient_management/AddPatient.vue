@@ -67,6 +67,9 @@
 </template>  
   
 <script>  
+import { useRouter } from 'vue-router';
+const router = useRouter();
+import { ElMessage } from 'element-plus';
 import BackHeader from '../../../components/BackHeader.vue';
 export default {
   components: {  
@@ -94,10 +97,13 @@ export default {
             // 将就诊人信息存储到 localStorage
 			const patientData = JSON.stringify(this.patient);
             localStorage.setItem('patient', patientData);
+            ElMessage.success('提交成功');
+            router.push({ name: 'patientList' });
 			// 所有必填项都已填写，可以进行表单提交  
             console.log('提交就诊人信息:', this.patient);  
         } else { 
-            alert('请填写所有必填项！');  
+            // alert('请填写所有必填项！'); 
+            ElMessage.error('请填写所有必填项！'); 
             }  
     },  
   },  
@@ -160,7 +166,7 @@ export default {
   display: block;  
   width: 100%;  
   padding: 15px;  
-  background-color: #6fdfb1;  
+  background-color: green;  
   color: white;  
   border: none;  
   border-radius: 4px;  

@@ -18,6 +18,7 @@
   </template>
   
   <script setup>
+  import { ElMessage } from 'element-plus';
   import { ref, onMounted } from 'vue';
   
   const orders = ref([]);
@@ -40,6 +41,7 @@
     const finishedOrders = JSON.parse(localStorage.getItem('finishedOrders')) || [];
     finishedOrders.push(completedOrder);
     localStorage.setItem('finishedOrders', JSON.stringify(finishedOrders));
+    ElMessage.success('订单已完成');
   };
   </script>
   

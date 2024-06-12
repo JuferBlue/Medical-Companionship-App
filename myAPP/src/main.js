@@ -9,7 +9,7 @@ import './assets/css/common.css'
 import './assets/css/index.css'
 import './assets/font/iconfont.css'
 import './assets/font/iconfont.js'
-
+import 'element-plus/dist/index.css'
 
 let app = createApp(App)
 //绑定路由对象

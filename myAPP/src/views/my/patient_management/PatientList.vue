@@ -1,6 +1,6 @@
 <template>  
     <div>
-		<ckHeader title="就诊人管理" />
+		<BackHeader title="就诊人管理" />
 		
          <div class="patient-management">
            <div class="patient" v-if="patient">
@@ -27,6 +27,7 @@
 </template>  
   
 <script setup>  
+import { ElMessage } from 'element-plus';
 import BackHeader from '../../../components/BackHeader.vue';
 
 import { ref, onMounted } from 'vue';
@@ -44,6 +45,7 @@ onMounted(() => {
 // 清除 localStorage 中的 patient 信息
 function clearPatientData() {
   localStorage.removeItem('patient');
+  ElMessage.success('就诊人信息已删除');
   patient.value = null;
 }
 
@@ -81,7 +83,7 @@ function encryptedIdNumber() {
    display: block;
    width: 100%;  
    padding: 15px;  
-   background-color: #6fdfb1;  
+   background-color: green;  
    color: white;  
    border: none;  
    border-radius: 4px;  
@@ -92,7 +94,8 @@ function encryptedIdNumber() {
 }  
   
 .addBtn:hover {  
-    background-color: green; 
+    background-color: #6fdfb1; 
+    
 }  
 
 .patient {
@@ -122,7 +125,7 @@ function encryptedIdNumber() {
 
 .patient button {
   border: none;
-  background: #4A90E2;
+  background: #11aa66;
   color: white;
   padding: 2px 10px;
   cursor: pointer;

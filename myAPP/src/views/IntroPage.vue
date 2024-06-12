@@ -1,7 +1,6 @@
 <template>
     <div class="intro">
-      <h1>Welcome to My App</h1>
-      <p>Loading...</p>
+      <img src="./我陪你变老.png" alt="">
     </div>
   </template>
   
@@ -26,6 +25,6 @@ onMounted(() => {
   setTimeout(() => {
     // 跳转到 /index 页面
     router.push({ path: '/index' })
-  }, 2000) // 2秒后跳转到 /index
+  }, 4000) // 2秒后跳转到 /index
 })
 </script>

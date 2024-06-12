@@ -1,39 +1,44 @@
 <template>
-  <div class="container">
-    <h1>新用户注册</h1>
-    <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
-    <form @submit.prevent="handleRegister">
-      <label for="username">用户名</label>
-      <input type="text" v-model="username" class="register" placeholder="输入用户名">
+  <div>
+    <BackHeader title="注册" />
+    <div class="container">
+      <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
+      <form @submit.prevent="handleRegister">
+        <label for="username">用户名</label>
+        <input type="text" v-model="username" class="register" placeholder="输入用户名">
 
-      <label for="phonenumber">手机号</label>
-      <input type="text" v-model="phoneNumber" class="register" placeholder="输入手机号">
+        <label for="phonenumber">手机号</label>
+        <input type="text" v-model="phoneNumber" class="register" placeholder="输入手机号">
 
-      <label for="password">登录密码</label>
-      <input type="password" v-model="password" class="register" placeholder="输入登录密码">
+        <label for="password">登录密码</label>
+        <input type="password" v-model="password" class="register" placeholder="输入登录密码">
 
-      <label for="confirmPassword">确认密码</label>
-      <input type="password" v-model="confirmPassword" class="register" placeholder="确认密码">
+        <label for="confirmPassword">确认密码</label>
+        <input type="password" v-model="confirmPassword" class="register" placeholder="确认密码">
 
-      <div class="checkbox">
-        <input type="checkbox" v-model="agreement">
-        <span>我已阅读并同意《用户注册协议》</span>
-      </div>
+        <div class="checkbox">
+          <input type="checkbox" v-model="agreement">
+          <span>我已阅读并同意《用户注册协议》</span>
+        </div>
 
-      <button type="submit" class="submit">开始注册</button>
-      <div class="links">
-        <button class="ab" @click="$router.push({ name: 'index' })">返回首页</button>
-        <button class="ab" @click="$router.push({ name: 'login' })">开始登录</button>
-      </div>
-    </form>
+        <button type="submit" class="submit">注册</button>
+        <div class="links">
+          <button class="ab" @click="$router.push({ name: 'index' })"></button>
+          <button class="ab" @click="$router.push({ name: 'login' })">前往登录</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 
 <script setup>  
-
+import { useRouter } from 'vue-router';
+const router = useRouter();
+import { ElMessage } from 'element-plus';
+import BackHeader from '../../components/BackHeader.vue';
 import { ref } from 'vue';  
-const registeredUser = ref(null);
+
 const username = ref('');  
 const phoneNumber = ref('');  
 const password = ref('');  
@@ -42,28 +47,44 @@ const agreement = ref(false);
 const errorMessage = ref('');  
   
 const handleRegister = () => {  
-  if (!agreement.value) {  
-    errorMessage.value = "请先阅读并同意《用户注册协议》！";  
-    return;  
-  }  
+  
   if (!username.value || !phoneNumber.value || !password.value || !confirmPassword.value) {  
-    errorMessage.value = "所有字段都是必填项！";  
+    // errorMessage.value = "所有字段都是必填项！";
+    ElMessage.error('所有字段都是必填项！');  
     return;  
   }  
   if (password.value !== confirmPassword.value) {  
-    errorMessage.value = "密码和确认密码不一致！";  
+    // errorMessage.value = "密码和确认密码不一致！";
+    ElMessage.error('密码和确认密码不一致！');
+    return;  
+  }  
+  if (username.value.length < 4 || username.value.length > 16) {  
+    // errorMessage.value = "用户名长度必须在4到16个字符之间！";  
+    ElMessage.error('用户名长度必须在4到16个字符之间！');
+    return;  
+  }
+  if (phoneNumber.value.length !== 11) {  
+    // errorMessage.value = "手机号必须是11位数字！";  
+    ElMessage.error('手机号必须是11位数字！');
+    return;  
+  }
+  if (!agreement.value) {  
+    // errorMessage.value = "请先阅读并同意《用户注册协议》！"; 
+    ElMessage.error('请先阅读并同意《用户注册协议》！'); 
     return;  
   }  
 
-
   const userData = {
-  username: username.value,
-  password: password.value,
-};
-localStorage.setItem('userData', JSON.stringify(userData));
-registeredUser.value = userData;
+    username: username.value,
+    password: password.value,
+    phoneNumber: phoneNumber.value
+  };
+  localStorage.setItem('userData', JSON.stringify(userData));
 
-  errorMessage.value = "注册成功！";  
+  // errorMessage.value = "注册成功！";  
+  ElMessage.success('注册成功！');
+  router.push({ name: 'login' });
+
 };  
 </script>  
 
