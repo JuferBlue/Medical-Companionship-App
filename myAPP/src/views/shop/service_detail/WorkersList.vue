@@ -48,8 +48,8 @@ const allWorkers = {
     { id: 6, name: '周八', gender: '女', age: 38, photo: pic_head, rating: 4.9, orders: 160 }
   ],
   4: [
-    { id: 7, name: '吴九', gender: '男', age: 29, photo: pic_head, rating: 4.5, orders: 100 },
-    { id: 8, name: '郑十', gender: '女', age: 27, photo: pic_head, rating: 4.8, orders: 170 }
+    { id: 7, name: '吴九', gender: '男', age: 29, photo: img_03, rating: 4.5, orders: 100 },
+    { id: 8, name: '郑十', gender: '女', age: 27, photo: img_04, rating: 4.8, orders: 170 }
   ],
   5: [
     { id: 9, name: '刘一', gender: '男', age: 31, photo: pic_head, rating: 4.7, orders: 125 },

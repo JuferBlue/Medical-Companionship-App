@@ -91,12 +91,10 @@ const cancelOrder = (index) => {
 
 const checkout = () => {
   if (selectedOrders.value.length === 0) {
-    // alert('请选择要结算的订单');
     ElMessage.warning('请选择要结算的订单');
     return;
   }
-  // 结算的逻辑
-  // alert(`总价: ￥${discountedTotal.value.toFixed(2)}，结算中...`);
+
   ElMessage.success(`总价: ￥${discountedTotal.value.toFixed(2)}，结算中...`);
 
   // 将已结算的订单存入 localStorage 中的 processOrders
@@ -107,8 +105,17 @@ const checkout = () => {
   // 清空已结算的订单
   orders.value = orders.value.filter(order => !selectedOrders.value.includes(order));
   sessionStorage.setItem('unpaidOrders', JSON.stringify(orders.value));
+
   // 清空选中订单
   selectedOrders.value = [];
+
+  // 移除已使用的优惠券
+  if (selectedCoupon.value) {
+    const updatedCoupons = coupons.value.filter(coupon => coupon.discount !== selectedCoupon.value);
+    localStorage.setItem('coupons', JSON.stringify(updatedCoupons));
+    coupons.value = updatedCoupons;
+    selectedCoupon.value = null;
+  }
 };
 </script>
 
