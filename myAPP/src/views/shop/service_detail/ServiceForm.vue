@@ -38,10 +38,8 @@ import { ElMessage } from 'element-plus';
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import BackHeader from '../../../components/BackHeader.vue';
-
 const route = useRoute();
 const router = useRouter();
-
 const workerName = ref(route.query.workerName || '');
 const serviceTitle = ref(route.query.serviceTitle || '');
 const servicePrice = ref(route.query.servicePrice || '');
@@ -59,7 +57,7 @@ const submitForm = () => {
     ElMessage.error('请选择预约时间');
     return;
   }
-
+  
   const selectedDate = new Date(appointmentDate.value);
   const currentDate = new Date();
   if (selectedDate <= currentDate) {

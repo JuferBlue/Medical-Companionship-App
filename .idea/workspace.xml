@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77a3b602-0ba5-4613-8c21-36ec1a1bdfd8" name="Changes" comment="修改消息模块为社区模块" />
+    <list default="true" id="77a3b602-0ba5-4613-8c21-36ec1a1bdfd8" name="Changes" comment="项目完善" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +74,7 @@
       <workItem from="1718002603214" duration="88000" />
       <workItem from="1718017631312" duration="25000" />
       <workItem from="1718119750288" duration="51000" />
+      <workItem from="1718187939689" duration="59000" />
     </task>
     <task id="LOCAL-00001" summary="新增服务，订单，消息三个页面">
       <option name="closed" value="true" />
@@ -123,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718119771281</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="项目完善">
+      <option name="closed" value="true" />
+      <created>1718187961483</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718187961483</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +145,7 @@
     <MESSAGE value="完善订单功能模块" />
     <MESSAGE value="完善评价功能" />
     <MESSAGE value="修改消息模块为社区模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改消息模块为社区模块" />
+    <MESSAGE value="项目完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="项目完善" />
   </component>
 </project>

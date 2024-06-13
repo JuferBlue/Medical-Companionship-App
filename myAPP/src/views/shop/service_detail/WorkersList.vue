@@ -22,6 +22,9 @@
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import pic_head from './pic_head.jpg';
+import img_02 from './img_02.png';
+import img_03 from './img_03.png';
+import img_04 from './img_04.png'
 import { defineProps } from 'vue';
 
 const props = defineProps({
@@ -34,11 +37,11 @@ const props = defineProps({
 const allWorkers = {
   1: [
     { id: 1, name: '张三', gender: '男', age: 30, photo: pic_head, rating: 4.5, orders: 120 },
-    { id: 2, name: '李四', gender: '女', age: 28, photo: pic_head, rating: 4.8, orders: 150 }
+    { id: 2, name: '李四', gender: '女', age: 28, photo: img_02, rating: 4.8, orders: 150 }
   ],
   2: [
-    { id: 3, name: '王五', gender: '男', age: 35, photo: pic_head, rating: 4.6, orders: 110 },
-    { id: 4, name: '赵六', gender: '女', age: 32, photo: pic_head, rating: 4.7, orders: 140 }
+    { id: 3, name: '王五', gender: '男', age: 35, photo: img_03, rating: 4.6, orders: 110 },
+    { id: 4, name: '赵六', gender: '女', age: 32, photo: img_04, rating: 4.7, orders: 140 }
   ],
   3: [
     { id: 5, name: '孙七', gender: '男', age: 40, photo: pic_head, rating: 4.8, orders: 130 },

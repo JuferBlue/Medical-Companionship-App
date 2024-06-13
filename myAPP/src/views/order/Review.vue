@@ -24,18 +24,13 @@
   <script setup>
   import { ElMessage } from 'element-plus';
   import BackHeader from '../../components/BackHeader.vue';
-
-
   import { ref } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
-  
   const route = useRoute();
   const router = useRouter();
   const order = route.query;
-  
   const rating = ref(0);
   const comment = ref('');
-  
   const submitReview = () => {
     // 执行评价提交的逻辑
     const reviewedOrder = { ...order, rating: rating.value, comment: comment.value };

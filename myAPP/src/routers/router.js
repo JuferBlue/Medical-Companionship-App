@@ -158,6 +158,12 @@ const router = createRouter({
             path:'/settings',
             component:()=>import('../views/my/setting_page/Setting.vue'),
             meta:{fullScreen:true}
+        },
+        //联系客服页面
+        {
+            path:'/contact',
+            component:()=>import('../views/my/contact_page/Contact.vue'),
+            meta:{fullScreen:true}
         }
     ]
 
