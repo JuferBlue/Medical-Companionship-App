@@ -15,6 +15,8 @@
 
 #### 使用说明!!!
 
+**运行条件：需要有node.js环境**
+
 下载zip包后解压 得到 medical-companionship-app-master 文件
 
 将medical-companionship-app-master文件拖入vscode/HBuilder中
